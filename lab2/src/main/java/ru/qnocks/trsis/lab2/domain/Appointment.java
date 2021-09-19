@@ -1,13 +1,19 @@
 package ru.qnocks.trsis.lab2.domain;
 
+
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Appointment {
     private Long id;
+    @NotNull
     private Doctor doctor;
+    @NotNull
     private Patient patient;
+    @NotNull
     private LocalDate date;
+    @NotNull
     private LocalTime time;
 
     public Appointment(Doctor doctor, Patient patient, LocalDate date, LocalTime time) {

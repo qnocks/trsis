@@ -1,11 +1,16 @@
 package ru.qnocks.trsis.lab2.domain;
 
+
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class Patient {
     private Long id;
+    @NotNull
     private String fullName;
+    @NotNull
     private LocalDate birthDate;
+    @NotNull
     private String address;
 
     public Patient(String fullName, LocalDate birthDate, String address) {

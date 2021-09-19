@@ -8,6 +8,7 @@ import ru.qnocks.trsis.lab2.dao.AppointmentsDao;
 import ru.qnocks.trsis.lab2.domain.Appointment;
 import ru.qnocks.trsis.lab2.domain.Doctor;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,11 +28,15 @@ public class AppointmentsRestController {
 
     @GetMapping("{id}")
     public ResponseEntity<Appointment> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(appointmentsDao.findById(id), HttpStatus.OK);
+        Appointment appointment = appointmentsDao.findById(id);
+        if (appointment == null) {
+            throw new IllegalArgumentException("Cannot find appointment with id " + id);
+        }
+        return new ResponseEntity<>(appointment, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Appointment> save(@RequestBody Appointment appointment) {
+    public ResponseEntity<Appointment> save(@Valid @RequestBody Appointment appointment) {
         return new ResponseEntity<>(appointmentsDao.save(appointment), HttpStatus.CREATED);
     }
 

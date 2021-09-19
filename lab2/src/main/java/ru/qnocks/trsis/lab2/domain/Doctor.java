@@ -1,9 +1,15 @@
 package ru.qnocks.trsis.lab2.domain;
 
+
+import javax.validation.constraints.NotNull;
+
 public class Doctor {
     private Long id;
+    @NotNull
     private String fullName;
+    @NotNull
     private String specialty;
+    @NotNull
     private String schedule;
 
     public Doctor(String fullName, String specialty, String schedule) {

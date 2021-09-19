@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.qnocks.trsis.lab2.dao.DoctorsDao;
 import ru.qnocks.trsis.lab2.domain.Doctor;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,11 +28,15 @@ public class DoctorsRestController {
 
     @GetMapping("{id}")
     public ResponseEntity<Doctor> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(doctorsDao.findById(id), HttpStatus.OK);
+        Doctor doctor = doctorsDao.findById(id);
+        if (doctor == null) {
+            throw new IllegalArgumentException("Cannot find doctor with id " + id);
+        }
+        return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Doctor> save(@RequestBody Doctor doctor) {
+    public ResponseEntity<Doctor> save(@Valid @RequestBody Doctor doctor) {
         return new ResponseEntity<>(doctorsDao.save(doctor), HttpStatus.CREATED);
     }
 
@@ -40,5 +45,4 @@ public class DoctorsRestController {
         doctorsDao.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.qnocks.trsis.lab2.dao.AppointmentsDao;
 import ru.qnocks.trsis.lab2.dao.PatientsDao;
-import ru.qnocks.trsis.lab2.domain.Appointment;
 import ru.qnocks.trsis.lab2.domain.Patient;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,11 +27,15 @@ public class PatientRestController {
 
     @GetMapping("{id}")
     public ResponseEntity<Patient> show(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(patientsDao.findById(id), HttpStatus.OK);
+        Patient patient = patientsDao.findById(id);
+        if (patient == null) {
+            throw new IllegalArgumentException("Cannot find patient with id " + id);
+        }
+        return new ResponseEntity<>(patient, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Patient> save(@RequestBody Patient patient) {
+    public ResponseEntity<Patient> save(@Valid @RequestBody Patient patient) {
         return new ResponseEntity<>(patientsDao.save(patient), HttpStatus.CREATED);
     }
 

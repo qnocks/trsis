@@ -31,6 +31,5 @@ public class CreateDoctorServlet extends HttpServlet {
 
         req.setAttribute("doctors", doctorsDao.findALl());
         resp.sendRedirect("/doctors");
-//        req.getRequestDispatcher("/jsp/doctors/list.jps").forward(req, resp);
     }
 }
