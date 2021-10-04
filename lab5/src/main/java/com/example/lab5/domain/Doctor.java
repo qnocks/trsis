@@ -25,11 +25,6 @@ public class Doctor {
     @NotBlank(message = "This field cannot be blank")
     private String specialty;
 
-    @Column(name = "office_number")
-    @NotNull(message = "This field can't be null")
-    @Min(value = 1, message = "The office number cannot be less then 1")
-    private Integer officeNumber;
-
     @Column(name = "schedule")
     @NotBlank(message = "This field cannot be blank")
     @Pattern(regexp = "([01]?[0-9]|2[0-3]):[0-5][0-9]-([01]?[0-9]|2[0-3]):[0-5][0-9]",

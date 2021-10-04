@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/patients")
-public class PatientRestController {
+public class PatientsRestController {
     private final PatientsDao patientsDao;
 
     @Autowired
-    public PatientRestController(PatientsDao patientsDao) {
+    public PatientsRestController(PatientsDao patientsDao) {
         this.patientsDao = patientsDao;
     }
 

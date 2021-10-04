@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <head>
@@ -23,8 +23,13 @@
                 <td><a href="${pageContext.servletContext.contextPath}/doctors/delete/${doctor.id}">Delete</a></td>
             </tr>
         </c:forEach>
-            <%--                <a href="${pageContext.servletContext.contextPath}/create"></a> --%>
     </table>
     <a href="${pageContext.request.contextPath}/doctors/create">Add new doctor</a>
 </body>
 </html>
+
+
+servlet
+
+
+jsp

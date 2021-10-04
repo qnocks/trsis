@@ -27,3 +27,9 @@
     <a href="${pageContext.request.contextPath}/doctors/create">Add new doctor</a>
 </body>
 </html>
+
+
+servlet
+
+
+jsp

@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/doctors")
 public class DoctorsRestController {
-
     private final DoctorsDao doctorsDao;
 
     @Autowired

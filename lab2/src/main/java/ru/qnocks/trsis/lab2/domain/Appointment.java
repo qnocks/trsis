@@ -1,6 +1,5 @@
 package ru.qnocks.trsis.lab2.domain;
 
-
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;

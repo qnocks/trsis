@@ -16,7 +16,7 @@ public class ApiExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiException> handleValidationExceptions(MethodArgumentNotValidException e) {
         return new ResponseEntity<>(
-                new ApiException(e.getMessage(), HttpStatus.BAD_REQUEST, ZonedDateTime.now()),
+                new ApiException(e.getAllErrors().toString() , HttpStatus.BAD_REQUEST, ZonedDateTime.now()),
                 HttpStatus.BAD_REQUEST
         );
     }
@@ -28,5 +28,4 @@ public class ApiExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
-
 }

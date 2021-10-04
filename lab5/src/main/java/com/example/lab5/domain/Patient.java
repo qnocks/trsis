@@ -21,15 +21,9 @@ public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "registration_number")
-    @NotBlank(message = "Registration number cannot be blank")
-    // TODO: regex
-    private String registrationNumber;
-
     @Column(name = "full_name")
     @NotBlank(message = "Patient's full name cannot be blank")
     private String fullName;
-
 
     @Column(name = "birth_date")
     @NotNull(message = "This field cannot be null")
@@ -40,9 +34,4 @@ public class Patient {
     @Column(name = "address")
     @NotBlank(message = "This field cannot be blank")
     private String address;
-
-    @Column(name = "job")
-    @NotBlank(message = "This field cannot be blank")
-    private String job;
-
 }
