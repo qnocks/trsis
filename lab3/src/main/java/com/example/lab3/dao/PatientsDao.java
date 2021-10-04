@@ -10,9 +10,8 @@ import java.util.Map;
 
 @Component
 public class PatientsDao implements CrudDao<Patient, Long> {
-
     private long id = 0L;
-    private Map<Long, Patient> patients = new HashMap<>();
+    private final Map<Long, Patient> patients = new HashMap<>();
 
     @Override
     public Patient save(Patient entity) {

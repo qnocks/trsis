@@ -11,9 +11,4 @@ public class IndexController {
     public String homepage() {
         return "index";
     }
-
-    @GetMapping("/doctors")
-    public String doctors() {
-        return "doctors/list";
-    }
 }

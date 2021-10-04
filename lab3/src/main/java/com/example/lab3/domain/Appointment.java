@@ -1,67 +1,24 @@
 package com.example.lab3.domain;
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Appointment {
     private Long id;
+    @NonNull
     private Long doctorId;
+    @NonNull
     private Long patientId;
+    @NonNull
     private LocalDate date;
+    @NonNull
     private LocalTime time;
-
-    public Appointment(Long doctorId, Long patientId, LocalDate date, LocalTime time) {
-        this.doctorId = doctorId;
-        this.patientId = patientId;
-        this.date = date;
-        this.time = time;
-    }
-
-    public Appointment(Long id, Long doctorId, Long patientId, LocalDate date, LocalTime time) {
-        this.id = id;
-        this.doctorId = doctorId;
-        this.patientId = patientId;
-        this.date = date;
-        this.time = time;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public Long getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
-    }
-
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
-    }
 }
