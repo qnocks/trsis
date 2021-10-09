@@ -12,8 +12,7 @@ import javax.validation.constraints.*;
 @Entity
 @Table(name = "doctors")
 public class Doctor {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "full_name")

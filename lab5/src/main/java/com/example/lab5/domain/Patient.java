@@ -10,15 +10,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-@Entity
-@Table(name = "patients")
 @Getter
 @Setter
+@Entity
+@Table(name = "patients")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Patient {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "full_name")

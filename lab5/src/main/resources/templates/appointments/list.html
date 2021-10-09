@@ -11,8 +11,8 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Registration Number</th>
-                <th scope="col">Full name</th>
+                <th scope="col">Doctor's name</th>
+                <th scope="col">Patient's name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col"></th>
@@ -22,15 +22,12 @@
         <tbody>
         <tr th:each="appointment : ${appointments}">
             <td th:text="${appointment.id}"></td>
-            <td th:text="${appointment.registrationNumber}"></td>
-            <td th:text="${appointment.fullName}"></td>
+            <td th:text="${appointment.doctor.fullName}"></td>
+            <td th:text="${appointment.patient.fullName}"></td>
             <td th:text="${appointment.date}"></td>
             <td th:text="${appointment.time}"></td>
             <td>
-                <a th:href="@{/appointments/{id}/edit(id=${appointment.fullName})}">Edit</a>
-            </td>
-            <td>
-                <a th:href="@{/appointments/{id}/delete(id=${appointment.fullName})}">Delete</a>
+                <a th:href="@{/appointments/{id}/delete(id=${appointment.id})}">Delete</a>
             </td>
         </tr>
         </tbody>

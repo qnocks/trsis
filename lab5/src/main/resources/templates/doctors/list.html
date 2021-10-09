@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:td="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head th:replace="fragments/general.html :: head"></head>
 <body>
     <header th:insert="fragments/general.html :: header"></header>
@@ -24,7 +24,7 @@
             <td th:text="${doctor.specialty}"></td>
             <td th:text="${doctor.schedule}"></td>
             <td>
-                <a th:href="@{/doctors/{id}/delete(id=${doctor.id})}">Delete</a>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/doctors/{id}/delete(id=${doctor.id})}">Delete</a>
             </td>
         </tr>
         </tbody>

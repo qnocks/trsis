@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/general.html :: head"></head>
+<head th:replace="fragments/shared.html :: head"></head>
 <body>
-<header th:insert="fragments/general.html :: header"></header>
-
+<header th:insert="fragments/shared.html :: header"></header>
 <h1 class="title">Patients</h1>
-
-<div><a th:href="@{/patients/new}" class="btn btn-primary">Add a patient</a></div>
+<div>
+    <a href="/patients/new" class="btn btn-primary">Add a patient</a>
+</div>
 
 <table class="table table-striped">
     <thead>
@@ -22,7 +22,6 @@
     </tr>
     </thead>
     <tbody>
-    <!--/*@thymesVar id="patients" type="com.example.saodcourse3v.models.Patient"*/-->
     <tr th:each="patient : ${patients}">
         <td th:text="${patient.id}"></td>
         <td th:text="${patient.registrationNumber}"></td>
