@@ -13,6 +13,10 @@ public class AppointmentsDao implements CrudDao<Appointment, Long> {
     private long id = 0L;
     private final Map<Long, Appointment> appointments = new HashMap<>();
 
+    {
+        Appointment appointment1;
+    }
+
     @Override
     public Appointment save(Appointment entity) {
         entity.setId(id++);

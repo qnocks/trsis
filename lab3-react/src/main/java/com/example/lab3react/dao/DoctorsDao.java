@@ -13,6 +13,15 @@ public class DoctorsDao implements CrudDao<Doctor, Long> {
     private long id = 0L;
     private final Map<Long, Doctor> doctors = new HashMap<>();
 
+    {
+        Doctor doctor1 = new Doctor(1L, "Доктор1", "Специальность1", "14:00-16:23");
+        Doctor doctor2 = new Doctor(2L, "Доктор2", "Специальность2", "15:00-16:23");
+        Doctor doctor3 = new Doctor(3L, "Доктор3", "Специальность3", "16:00-16:23");
+        doctors.put(doctor1.getId(), doctor1);
+        doctors.put(doctor2.getId(), doctor2);
+        doctors.put(doctor3.getId(), doctor3);
+    }
+
     @Override
     public Doctor save(Doctor entity) {
         entity.setId(id++);

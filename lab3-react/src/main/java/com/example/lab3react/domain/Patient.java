@@ -1,14 +1,13 @@
 package com.example.lab3react.domain;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Patient {
     private Long id;
