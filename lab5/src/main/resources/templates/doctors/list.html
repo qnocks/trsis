@@ -5,7 +5,7 @@
     <header th:insert="fragments/general.html :: header"></header>
     <h1 class="title">Doctors</h1>
     <div>
-        <a th:href="@{/doctors/new}" class="btn btn-primary">Add a doctor</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/doctors/new}" class="btn btn-primary">Add a doctor</a>
     </div>
     <table class="table table-striped">
         <thead>
