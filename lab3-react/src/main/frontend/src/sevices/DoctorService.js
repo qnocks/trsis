@@ -12,8 +12,8 @@ class DoctorService {
         return axios.post(API_DOCTORS, doctor);
     }
 
-    deleteDoctor() {
-        // TODO: DELETE
+    delete(id) {
+        return axios.delete(API_DOCTORS + '/' + id);
     }
 
 }

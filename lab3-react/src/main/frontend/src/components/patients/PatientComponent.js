@@ -10,8 +10,14 @@ class PatientComponent extends React.Component {
     }
 
     componentDidMount() {
-        PatientService.getPatients().then((res) => {
+        PatientService.getAll().then((res) => {
             this.setState({patients: res.data})
+        });
+    }
+
+    delete(id) {
+        PatientService.delete(id).then(res => {
+            this.setState({patients: this.state.patients.filter(d => d.id !== id)})
         });
     }
 
@@ -19,6 +25,9 @@ class PatientComponent extends React.Component {
         return (
             <div>
                 <h1 className="text-center">Patients list</h1>
+                <div className="row">
+                    <a href="/patients/create" className="btn btn-primary">add</a>
+                </div>
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -36,6 +45,9 @@ class PatientComponent extends React.Component {
                                     <td>{patient.fullName}</td>
                                     <td>{patient.birthDate}</td>
                                     <td>{patient.address}</td>
+                                    <td>
+                                        <button onClick={() => this.delete(patient.id)} className="btn brn-info">Delete</button>
+                                    </td>
                                 </tr>
                             )
                         }

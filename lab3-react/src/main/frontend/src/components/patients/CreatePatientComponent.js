@@ -1,27 +1,27 @@
 import React from "react";
-import DoctorService from "../../sevices/DoctorService";
+import PatientService from "../../sevices/PatientService";
 
-class CreateDoctorComponent extends React.Component {
+class CreatePatientComponent extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             fullName: '',
-            specialty: '',
-            schedule: ''
+            birthDate: '',
+            address: ''
         }
     }
 
     save = (e) => {
         e.preventDefault();
-        let doctor = {
+        let patient = {
             fullName: this.state.fullName,
-            specialty: this.state.specialty,
-            schedule: this.state.schedule
+            birthDate: this.state.birthDate,
+            address: this.state.address
         };
-        console.log(doctor);
-        DoctorService.save(doctor).then(res => {
-            this.props.history.push('/doctors');
+        console.log(patient);
+        PatientService.save(patient).then(res => {
+            this.props.history.push('/patients');
         });
     }
 
@@ -29,12 +29,12 @@ class CreateDoctorComponent extends React.Component {
         this.setState({ fullName: event.target.value });
     }
 
-    handleSpecialty(event) {
-        this.setState({specialty: event.target.value});
+    handleBirthDate(event) {
+        this.setState({birthDate: event.target.value});
     }
 
-    handleSchedule(event) {
-        this.setState({schedule: event.target.value});
+    handleAddress(event) {
+        this.setState({address: event.target.value});
     }
 
     render() {
@@ -46,12 +46,12 @@ class CreateDoctorComponent extends React.Component {
                         <input value={this.state.fullName} onChange={this.handleFullName.bind(this)} type="text" className="form-control" id="fullName" />
                     </div>
                     <div className="form-group">
-                        <label for="specialty"> Specialty</label>
-                        <input value={this.state.specialty} onChange={this.handleSpecialty.bind(this)} type="text" className="form-control" id="specialty" name="specialty" />
+                        <label for="specialty">Birthdate</label>
+                        <input value={this.state.birthDate} onChange={this.handleBirthDate.bind(this)} type="text" className="form-control" id="specialty" name="specialty" />
                     </div>
                     <div className="form-group">
-                        <label for="schedule"> Schedule</label>
-                        <input value={this.state.schedule} onChange={this.handleSchedule.bind(this)} type="text" className="form-control" id="schedule" name="schedule" />
+                        <label for="schedule">Address</label>
+                        <input value={this.state.address} onChange={this.handleAddress.bind(this)} type="text" className="form-control" id="schedule" name="schedule" />
                     </div>
                     <input type="submit" className="btn btn-primary" value="Add" />
                 </form>
@@ -60,4 +60,4 @@ class CreateDoctorComponent extends React.Component {
     }
 }
 
-export default CreateDoctorComponent;
+export default CreatePatientComponent;

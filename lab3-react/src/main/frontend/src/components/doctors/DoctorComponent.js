@@ -10,8 +10,14 @@ class DoctorComponent extends React.Component {
     }
 
     componentDidMount() {
-        DoctorService.getAll().then((res) => {
+        DoctorService.getAll().then(res => {
             this.setState({doctors: res.data})
+        });
+    }
+
+    delete(id) {
+        DoctorService.delete(id).then(res => {
+            this.setState({doctors: this.state.doctors.filter(d => d.id !== id)})
         });
     }
 
@@ -22,7 +28,6 @@ class DoctorComponent extends React.Component {
                 <div className="row">
                     <a href="/doctors/create" className="btn btn-primary">add</a>
                 </div>
-
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -40,6 +45,9 @@ class DoctorComponent extends React.Component {
                                     <td>{doctor.fullName}</td>
                                     <td>{doctor.specialty}</td>
                                     <td>{doctor.schedule}</td>
+                                    <td>
+                                        <button onClick={() => this.delete(doctor.id)} className="btn btn-info">Delete</button>
+                                    </td>
                                 </tr>
                             )
                         }
