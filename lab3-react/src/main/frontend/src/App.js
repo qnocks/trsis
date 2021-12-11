@@ -13,11 +13,10 @@ import CreatePatientComponent from './components/patients/CreatePatientComponent
 import AppointmentComponent from './components/appointments/AppointmentComponent';
 import CreateAppointmentComponent from './components/appointments/CreateAppointmentComponent';
 
-
 function App() {
   return (
     <BrowserRouter>
-      <div className="app-wrapper">
+      <div className="app-wrapper background-color">
         <IndexComponent />
       </div>
       <div className='app-wrapper-content'>

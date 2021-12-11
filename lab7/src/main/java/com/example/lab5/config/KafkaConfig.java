@@ -18,9 +18,11 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConfig {
-    @Value("${lab7.kafka.bootstrap-servers}")
+
+    @Value("${app.kafka.bootstrap-servers}")
     private String bootstrapServers;
-    @Value("${lab7.kafka.group}")
+
+    @Value("${app.kafka.group}")
     private String group;
 
     @Bean

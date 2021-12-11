@@ -15,7 +15,6 @@ class DoctorService {
     delete(id) {
         return axios.delete(API_DOCTORS + '/' + id);
     }
-
 }
 
 export default new DoctorService()

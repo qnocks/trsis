@@ -46,7 +46,7 @@ class PatientComponent extends React.Component {
                                     <td>{patient.birthDate}</td>
                                     <td>{patient.address}</td>
                                     <td>
-                                        <button onClick={() => this.delete(patient.id)} className="btn brn-info">Delete</button>
+                                        <button onClick={() => this.delete(patient.id)} className="btn btn-info">Delete</button>
                                     </td>
                                 </tr>
                             )

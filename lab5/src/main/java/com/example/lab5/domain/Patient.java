@@ -1,17 +1,13 @@
 package com.example.lab5.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "patients")
 @AllArgsConstructor
